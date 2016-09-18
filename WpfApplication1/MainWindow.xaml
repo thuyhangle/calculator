@@ -15,25 +15,29 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="38*"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="43*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Number 1" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
-        <Label Content="Number 2" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center"/>
-        <TextBox Name="givenNumber1" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="2" Grid.Row="1" Margin="10"/>
-        <TextBox Name="givenNumber2" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="5" Grid.Row="1" Margin="10"/>
-        <GroupBox Header="Select Operation" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="2" Margin="10">
+        <Label Content="Number 1" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="0,7"/>
+        <Label Content="Number 2" Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" Margin="0,7"/>
+        <TextBox Name="givenNumber1" Cursor="" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="3" Grid.Row="1" Margin="10" TextChanged="givenNumber1_TextChanged" TabIndex="1"/>
+        <TextBox Name="givenNumber2" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="6" Grid.Row="1" Margin="10" TextChanged="givenNumber2_TextChanged" TabIndex="2"/>
+        <GroupBox Header="Select Operation" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="2" Margin="10">
             <StackPanel>
-                <RadioButton Name="choosePlus">Sum (+)</RadioButton>
-                <RadioButton Name="chooseMinus">Difference (-)</RadioButton>
-                <RadioButton Name="chooseMulti">Product(*)</RadioButton>
-                <RadioButton Name="chooseDivide">Quotient(/)</RadioButton>
+                <RadioButton Name="choosePlus" TabIndex="3" HorizontalAlignment="Right" Width="138" Checked="choosePlus_Checked">Sum (+)</RadioButton>
+                <RadioButton Name="chooseMinus" TabIndex="4" Checked="chooseMinus_Checked">Difference(-)</RadioButton>
+                <RadioButton Name="chooseMulti" TabIndex="5" Checked="chooseMulti_Checked">Product(*)</RadioButton>
+                <RadioButton Name="chooseDivide" TabIndex="6" Checked="chooseDivide_Checked">Quotient(/)</RadioButton>
             </StackPanel>
         </GroupBox>
+        <Button Grid.Column="3" Grid.Row="3" TabIndex="7" Click="Button_Click">Calculate</Button>
+        <Label Content="Result is:" VerticalAlignment="Center" Grid.Column="5" Grid.Row="3" Margin="0,7,23,7"/>
+        <Label Name="ans" VerticalAlignment="Center" Grid.Column="5" Grid.ColumnSpan="2" Margin="57,0,0,0" Grid.Row="3"/>
     </Grid>
 </Window>

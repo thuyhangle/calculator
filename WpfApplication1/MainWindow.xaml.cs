@@ -20,9 +20,48 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        string answer = "";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void givenNumber1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void givenNumber2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void choosePlus_Checked(object sender, RoutedEventArgs e)
+        {
+            int output = Int32.Parse(givenNumber1.Text) + Int32.Parse(givenNumber2.Text);
+            answer = output.ToString();
+        }
+
+        private void chooseMinus_Checked(object sender, RoutedEventArgs e)
+        {
+            int output = Int32.Parse(givenNumber1.Text) - Int32.Parse(givenNumber2.Text);
+            answer = output.ToString();
+        }
+
+        private void chooseMulti_Checked(object sender, RoutedEventArgs e)
+        {
+            int output = Int32.Parse(givenNumber1.Text) * Int32.Parse(givenNumber2.Text);
+            answer = output.ToString();
+        }
+
+        private void chooseDivide_Checked(object sender, RoutedEventArgs e)
+        {
+            float output = float.Parse(givenNumber1.Text) / float.Parse(givenNumber2.Text);
+            answer = output.ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ans.Content = answer.ToString();
         }
     }
 }
