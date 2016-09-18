@@ -21,42 +21,75 @@ namespace WpfApplication1
     public partial class MainWindow : Window
     {
         string answer = "";
+        string notiContent = "";
+        int number1;
+        int number2;
+
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
+            
+        }
+  
         private void givenNumber1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            try
+            {
+                number1 = int.Parse(givenNumber1.Text);
+            }
+            catch (FormatException exception)
+            {
+                answer = "N/A!";
+                notiContent = "Wrong format :( Please type again :)";
+                noti.Content = notiContent.ToString();
+            }
         }
 
         private void givenNumber2_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            try
+            {
+                number2 = int.Parse(givenNumber2.Text);
+            }
+            catch (FormatException exception)
+            {
+                answer = "N/A!";
+                notiContent = "Wrong format :( Please type again :)";
+                noti.Content = notiContent.ToString();
+            }
         }
         private void choosePlus_Checked(object sender, RoutedEventArgs e)
         {
-            int output = Int32.Parse(givenNumber1.Text) + Int32.Parse(givenNumber2.Text);
+            int output = number1 + number2;
             answer = output.ToString();
         }
 
         private void chooseMinus_Checked(object sender, RoutedEventArgs e)
         {
-            int output = Int32.Parse(givenNumber1.Text) - Int32.Parse(givenNumber2.Text);
+            int output = number1 - number2;
             answer = output.ToString();
         }
 
         private void chooseMulti_Checked(object sender, RoutedEventArgs e)
         {
-            int output = Int32.Parse(givenNumber1.Text) * Int32.Parse(givenNumber2.Text);
+            int output = number1 * number2;
             answer = output.ToString();
         }
 
         private void chooseDivide_Checked(object sender, RoutedEventArgs e)
         {
-            float output = float.Parse(givenNumber1.Text) / float.Parse(givenNumber2.Text);
-            answer = output.ToString();
+            if ( number2 == 0 )
+            {
+                notiContent = "You cannot divide by zero :( Please choose another number :)";
+                noti.Content = notiContent.ToString();
+            }
+            else
+            {
+                float output = number1 / number2;
+                answer = output.ToString();
+            }   
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
