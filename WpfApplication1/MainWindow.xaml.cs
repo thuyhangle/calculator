@@ -87,7 +87,7 @@ namespace WpfApplication1
             }
             else
             {
-                float output = number1 / number2;
+                float output = (float) number1 / (float) number2;
                 answer = output.ToString();
             }   
         }
